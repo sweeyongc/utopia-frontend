@@ -1,8 +1,8 @@
 import { Form, Input, Button, Card } from "antd";
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
-import "./Register.css";
 import { register } from "../utils";
+import "./Register.css";
 
 const Register = () => {
   const history = useHistory();
@@ -96,7 +96,7 @@ const Register = () => {
               },
             ]}
           >
-            <Input />
+            <Input.Password />
           </Form.Item>
 
           <Form.Item

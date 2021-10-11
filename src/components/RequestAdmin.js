@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react";
-import { Card, Button, message, Table, Tag, Row, Col } from "antd";
+import { Button, Card, Col, message, Row, Table, Tag } from "antd";
 import Title from "antd/es/typography/Title";
 import { BookOutlined, FireOutlined, ToolOutlined } from "@ant-design/icons";
-
 import { getAllRequests, setRequestStatus } from "../utils";
 import "./RequestAdmin.css";
 
-// RequestAdmin Component
-// All requests visible by Admin
 const RequestAdmin = () => {
   const [allRequests, setAllRequests] = useState([]);
 
-  // update fetchRequests state whenever admin updates the request status
   const [fetchRequests, setFetchRequests] = useState(true);
   useEffect(() => {
     if (fetchRequests) {
@@ -27,7 +23,6 @@ const RequestAdmin = () => {
     }
   }, [fetchRequests]);
 
-  // api call to update status
   const updateStatus = (requestId, newStatus) => {
     setRequestStatus({
       requestId: requestId,
@@ -42,13 +37,12 @@ const RequestAdmin = () => {
       });
   };
 
-  // Define columns
   const columns = [
     {
       title: "CREATION DATE",
       dataIndex: "creationTime",
       sorter: (a, b) => new Date(a.creationTime) - new Date(b.creationTime),
-      defaultSortOrder: "ascend",
+      defaultSortOrder: "descend",
       width: "10%",
       render: (creationTime) => {
         return (
@@ -187,7 +181,7 @@ const RequestAdmin = () => {
 
   return (
     <>
-      <Card title="Requests" className="RequestAdmin-card">
+      <Card title="Request Management" className="RequestAdmin-card">
         <Table
           columns={columns}
           dataSource={allRequests}

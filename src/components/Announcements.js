@@ -1,4 +1,4 @@
-import { Card, Layout, message, Typography, Space, Col, Row } from "antd";
+import { Card, Col, Layout, message, Row, Space, Typography } from "antd";
 import {
   ReadOutlined,
   TeamOutlined,
@@ -6,7 +6,7 @@ import {
   HomeOutlined,
 } from "@ant-design/icons";
 import { useEffect, useState } from "react";
-import { getAnnouncements } from "../utils";
+import { getAllAnnouncements } from "../utils";
 import "./Announcements.css";
 
 const { Text } = Typography;
@@ -34,9 +34,8 @@ const getCategoryIcon = (category) => {
 
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
-
   useEffect(() => {
-    getAnnouncements()
+    getAllAnnouncements()
       .then((data) => {
         setAnnouncements(data);
       })
@@ -50,16 +49,18 @@ const Announcements = () => {
       <div className="Announcement-background">Announcements</div>
 
       <Row gutter={[16, 16]} className="Announcement-cardSection">
-        {announcements.map(({ announcementId, title, category, content, creationTime }) => (
-          <Col key={announcementId} span={8}>
-            <Card className="Announcement-card" bordered={false}>
-              {getCategoryIcon(category)}
-              <br />
-              <h1 className="Announcement-title"> {title}</h1>
-              <AnnouncementContent content={content} date={creationTime} />
-            </Card>
-          </Col>
-        ))}
+        {announcements.map(
+          ({ announcementId, title, category, content, creationTime }) => (
+            <Col key={announcementId} span={8}>
+              <Card className="Announcement-card" bordered={false}>
+                {getCategoryIcon(category)}
+                <br />
+                <h1 className="Announcement-title"> {title}</h1>
+                <AnnouncementContent content={content} date={creationTime} />
+              </Card>
+            </Col>
+          )
+        )}
       </Row>
     </Layout>
   );
