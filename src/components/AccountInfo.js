@@ -1,84 +1,68 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Avatar, Descriptions, Divider, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { getAccountInfo} from "../utils";
+import { getAccountInfo } from "../utils";
 import "./AccountInfo.css";
 
-class AccountInfo extends React.Component {
-  state = {
-    accountInfo: {
-      email: null,
-      firstName: null,
-      lastName: null,
-      address: null,
-    },
-    orderData: null,
-  };
+const AccountInfo = () => {
+  const [accountInfo, setAccountInfo] = useState([]);
 
-  componentDidMount() {
-    // 1. query current logged in user's info
+  useEffect(() => {
     getAccountInfo()
-      .then((res) => {
-        this.setState({
-          accountInfo: res,
-        });
+      .then((data) => {
+        setAccountInfo(data);
       })
       .catch((err) => {
         message.error(err.message);
       });
-  }
-  render() {
-    return (
-      <Row>
-        <Col flex={1}></Col>
-        <Col flex={3}>
-          <br />
-          <Divider>
-            <h1>ACCOUNT INFO</h1>
-          </Divider>
-          <div className="AccountInfo-div">
-            <Avatar size={100} icon={<UserOutlined />} />
-          </div>
-          <br />
-          <Descriptions
-            title="Personal Information"
-            bordered
-            layout="vertical"
-            size="small"
-            column={{ xxl: 2, xl: 2, lg: 1, md: 1, sm: 1, xs: 1 }}
-          >
-            <Descriptions.Item label="First Name">
-              {this.state.accountInfo.firstName}
-            </Descriptions.Item>
-            <Descriptions.Item label="Last Name">
-              {this.state.accountInfo.lastName}
-            </Descriptions.Item>
-            <Descriptions.Item label="Email Address">
-              {this.state.accountInfo.email}
-            </Descriptions.Item>
-          </Descriptions>
+  }, []);
 
-          <Divider />
+  return (
+    <Row>
+      <Col flex={1}></Col>
+      <Col flex={3}>
+        <br />
+        <Divider>
+          <h1>ACCOUNT INFO</h1>
+        </Divider>
+        <div className="AccountInfo-div">
+          <Avatar size={100} icon={<UserOutlined />} />
+        </div>
+        <br />
+        <Descriptions
+          title="Personal Information"
+          bordered
+          layout="vertical"
+          size="small"
+          column={{ xxl: 2, xl: 2, lg: 1, md: 1, sm: 1, xs: 1 }}
+        >
+          <Descriptions.Item label="First Name">
+            {accountInfo.firstName}
+          </Descriptions.Item>
+          <Descriptions.Item label="Last Name">
+            {accountInfo.lastName}
+          </Descriptions.Item>
+          <Descriptions.Item label="Email Address">
+            {accountInfo.email}
+          </Descriptions.Item>
+        </Descriptions>
 
-          <Descriptions
-            title="Address"
-            bordered
-            column={{ xxl: 3, xl: 2, lg: 2, md: 1, sm: 1, xs: 1 }}
-          >
-            <Descriptions.Item label="Address">
-              {this.state.accountInfo.address}
-            </Descriptions.Item>
-          </Descriptions>
-          <Divider />
-          <br />
-          <br />
-          <br />
-          <br />
-        </Col>
-        <Col flex={1}></Col>
-      </Row>
-    );
-  }
-}
+        <Divider />
+
+        <Descriptions
+          title="Address"
+          bordered
+          column={{ xxl: 3, xl: 2, lg: 2, md: 1, sm: 1, xs: 1 }}
+        >
+          <Descriptions.Item label="Address">
+            {accountInfo.address}
+          </Descriptions.Item>
+        </Descriptions>
+        <Divider />
+      </Col>
+      <Col flex={1}></Col>
+    </Row>
+  );
+};
 
 export default AccountInfo;

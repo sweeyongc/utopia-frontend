@@ -9,10 +9,10 @@ import {
 import "./Main.css";
 
 import Announcement from "./Announcements.js";
+import AnnouncementAdmin from "./AnnouncementAdmin";
 import Login from "./Login.js";
 import MainLayout from "./MainLayout.js";
 import MyProfile from "./MyProfile.js";
-import NewAnnouncement from "./NewAnnouncement.js";
 import Register from "./Register.js";
 import RequestAdmin from "./RequestAdmin.js";
 
@@ -48,7 +48,6 @@ const PrivateUserRoute = ({ children, user, ...rest }) => {
 };
 
 function Main() {
-  // update the latest routing path using history
   const history = useHistory();
   const [user, setUser] = React.useState(null);
 
@@ -59,7 +58,6 @@ function Main() {
           <Redirect to="/announcements" />
         </Route>
 
-        {/* upon successful login, redirect user to announcements page */}
         <Route path="/login">
           <Login
             onLogin={(user) => {
@@ -79,17 +77,13 @@ function Main() {
           </MainLayout>
         </PrivateRoute>
 
-        <PrivateAdminRoute
-          path="/announcements/new-announcement"
-          user={user}
-          exact
-        >
+        <PrivateAdminRoute path="/announcement-management" user={user} exact>
           <MainLayout user={user}>
-            <NewAnnouncement />
+            <AnnouncementAdmin />
           </MainLayout>
         </PrivateAdminRoute>
 
-        <PrivateAdminRoute path="/requests" user={user} exact>
+        <PrivateAdminRoute path="/request-management" user={user} exact>
           <MainLayout user={user}>
             <RequestAdmin />
           </MainLayout>

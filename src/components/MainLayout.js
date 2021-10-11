@@ -1,8 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { Layout, Button, Space } from "antd";
-import "./MainLayout.css";
-import { AboutUs } from "./AboutUs.js";
 import { logout } from "../utils";
+import "./MainLayout.css";
 
 const { Header, Content, Footer } = Layout;
 
@@ -14,42 +13,7 @@ const MainLayout = ({ user, children }) => {
   const history = useHistory();
   const isAdmin = user.role === "admin";
 
-  const showIconsPerUserType = () => {
-    return isAdmin ? (
-      <>
-        <Button
-          type="text"
-          size="middle"
-          onClick={() => {
-            history.push("/requests");
-          }}
-        >
-          Requests
-        </Button>
-        <Button
-          type="text"
-          size="middle"
-          onClick={() => {
-            history.push("/announcements/new-announcement");
-          }}
-        >
-          New announcement
-        </Button>
-      </>
-    ) : (
-      <Button
-        type="text"
-        size="middle"
-        onClick={() => {
-          history.push("/profile");
-        }}
-      >
-        My profile
-      </Button>
-    );
-  };
-
-  const onLogout = (e) => {
+  const onLogout = () => {
     logout();
   };
 
@@ -76,7 +40,41 @@ const MainLayout = ({ user, children }) => {
                 Home
               </Button>
 
-              {showIconsPerUserType()}
+              {user.role === "admin" && (
+                <Button
+                  type="text"
+                  size="middle"
+                  onClick={() => {
+                    history.push("/announcement-management");
+                  }}
+                >
+                  Announcements
+                </Button>
+              )}
+
+              {user.role === "admin" && (
+                <Button
+                  type="text"
+                  size="middle"
+                  onClick={() => {
+                    history.push("/request-management");
+                  }}
+                >
+                  Requests
+                </Button>
+              )}
+
+              {user.role !== "admin" && (
+                <Button
+                  type="text"
+                  size="middle"
+                  onClick={() => {
+                    history.push("/profile");
+                  }}
+                >
+                  My Profile
+                </Button>
+              )}
 
               <Button
                 type="text"
@@ -94,8 +92,16 @@ const MainLayout = ({ user, children }) => {
       </Header>
 
       <Content>{children}</Content>
-      <AboutUs />
       <Footer className="MainLayout-footer">
+        <p>
+          About us
+          <br />
+          Utopia community features townhouses with spacious interiors,
+          light-filled rooms, modern finishes and the latest in smart home tech.
+          <br />
+          These are accompanied by a collection of outdoor spaces and
+          hospitality-focused amenities.
+        </p>
         <div className="MainLayout-footerSpacing">
           3645 Haven Avenue Menlo Park, CA 94025 | contactus@utopia.com |
           650-708-1111

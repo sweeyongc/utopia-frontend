@@ -2,10 +2,10 @@ import { message } from "antd";
 
 const SERVER_ORIGIN = "http://localhost:8080";
 
-//----------Login/Register Related APIs------------------
+//----------Login/Register APIs------------------
 
 const loginUrl = `${SERVER_ORIGIN}/login`;
-// SZ: the content type should be x-www-form-urlencoded.
+// the content type should be x-www-form-urlencoded.
 export const login = (credential) => {
   const { username, password } = credential;
   var urlencoded = new URLSearchParams();
@@ -29,7 +29,7 @@ export const login = (credential) => {
     .then((json) => {
       return getAccountInfo().then((user) => {
         // check user role
-        const role = json.authority; 
+        const role = json.authority;
         if (role === "ROLE_ADMIN") {
           return { ...user, role: "admin" };
         } else {
@@ -39,7 +39,7 @@ export const login = (credential) => {
     });
 };
 
-const getAccountInfoUrl = `${SERVER_ORIGIN}/accountinfo`;
+const getAccountInfoUrl = `${SERVER_ORIGIN}/account-info`;
 export const getAccountInfo = () => {
   return fetch(getAccountInfoUrl, {
     method: "GET",
@@ -87,10 +87,10 @@ export const logout = (data) => {
   });
 };
 
-//----------Announcement Related APIs------------------
+//----------Announcements APIs------------------
 
 const announcementsUrl = `/announcements`;
-export const getAnnouncements = () => {
+export const getAllAnnouncements = () => {
   return fetch(announcementsUrl).then((response) => {
     if (response.status < 200 || response.status >= 300) {
       throw Error("Fail to get announcements");
@@ -99,7 +99,7 @@ export const getAnnouncements = () => {
   });
 };
 
-const newAnnouncementUrl = `/announcements/new-announcement`;
+const newAnnouncementUrl = `/announcement-management/new`;
 export const newAnnouncement = (data) => {
   return fetch(newAnnouncementUrl, {
     method: "POST",
@@ -115,9 +115,42 @@ export const newAnnouncement = (data) => {
   });
 };
 
+const updateAnnouncementUrl = `/announcement-management/update`;
+export const updateAnnouncement = (data) => {
+  // takes in a list to support future mass update status
+  return fetch(updateAnnouncementUrl, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify([data]),
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to update announcement");
+    }
+  });
+};
+
+const deleteAnnouncementUrl = `/announcement-management/delete`;
+export const deleteAnnouncement = (data) => {
+  // takes in a list to support future mass update status
+  return fetch(deleteAnnouncementUrl, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify([data]),
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to delete announcement");
+    }
+  });
+};
+
 // ----------Requests APIs------------------
 
-const allRequestsUrl = `/allRequests`;
+const allRequestsUrl = `/request-management/all-requests`;
 export const getAllRequests = () => {
   return fetch(allRequestsUrl).then((response) => {
     if (response.status < 200 || response.status >= 300) {
@@ -127,7 +160,7 @@ export const getAllRequests = () => {
   });
 };
 
-const setRequestStatusUrl = `/setRequestStatus`;
+const setRequestStatusUrl = `/request-management/set-request-status`;
 export const setRequestStatus = (data) => {
   // takes in a list to support future mass update status
   return fetch(setRequestStatusUrl, {
@@ -143,7 +176,23 @@ export const setRequestStatus = (data) => {
   });
 };
 
-const getCurrentRequestsUrl = `/currentRequests`;
+const newRequestUrl = `/new-request`;
+export const newRequest = (data) => {
+  return fetch(newRequestUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(data),
+  }).then((response) => {
+    if (response.status < 200 || response.status >= 300) {
+      throw Error("Fail to create new request");
+    }
+  });
+};
+
+const getCurrentRequestsUrl = `/current-requests`;
 export const getCurrentRequests = () => {
   return fetch(getCurrentRequestsUrl, {
     method: "GET",
@@ -156,7 +205,7 @@ export const getCurrentRequests = () => {
   });
 };
 
-const deleteRequestUrl = `/deleteRequest`;
+const deleteRequestUrl = `/delete-request`;
 export const deleteRequest = (data) => {
   // takes in a list to support future mass update status
   return fetch(deleteRequestUrl, {
@@ -169,24 +218,6 @@ export const deleteRequest = (data) => {
   }).then((response) => {
     if (response.status < 200 || response.status >= 300) {
       throw Error("Fail to delete request");
-    }
-  });
-};
-
-// ----------New Request APIs---------------
-
-const newRequestUrl = `/newRequest`;
-export const newRequest = (data) => {
-  return fetch(newRequestUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-    body: JSON.stringify(data),
-  }).then((response) => {
-    if (response.status < 200 || response.status >= 300) {
-      throw Error("Fail to create new request");
     }
   });
 };

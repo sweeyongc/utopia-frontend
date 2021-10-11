@@ -1,8 +1,8 @@
 import React from "react";
-import { Layout } from "antd";
 import AccountInfo from "./AccountInfo";
 import Payment from "./Payment";
 import Request from "./Request";
+import { Layout } from "antd";
 import "./MyProfile.css";
 
 const { Content, Sider } = Layout;
@@ -18,7 +18,7 @@ const MyProfile = () => {
         <Layout className="MyProfile-layout">
           <Content className="MyProfile-content">
             <Request />
-            <br/>
+            <br />
             <Payment />
           </Content>
         </Layout>

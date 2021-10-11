@@ -1,9 +1,9 @@
 .RequestAdmin-resolvedButton {
-  background: limegreen;
+  background: green;
   border: green;
 }
 
 .RequestAdmin-card {
-    padding: 30px;
-    min-height: 80vh;
+  padding: 30px;
+  min-height: 80vh;
 }

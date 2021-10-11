@@ -1,18 +1,19 @@
-import { Button, Form, Input, Modal, message, Select } from "antd";
-import { newAnnouncement } from "../utils";
+import { Form, Input, Button, Modal, message, Select } from "antd";
+import { updateAnnouncement } from "../utils";
 
-const NewAnnouncement = (props) => {
+const AnnouncementUpdate = (props) => {
   const { Option } = Select;
 
   const onFinish = (values) => {
-    newAnnouncement({
+    updateAnnouncement({
+      announcementId: props.curAnnouncement.announcementId,
       title: values.title,
       category: values.category,
       content: values.content,
     })
       .then(() => {
         props.onSuccess();
-        message.success("New announcement has been successfully created!");
+        message.success("Announcement has been successfully updated!");
       })
       .catch((err) => {
         message.error(err.message);
@@ -21,7 +22,7 @@ const NewAnnouncement = (props) => {
 
   return (
     <Modal
-      title="Create new announcement"
+      title="Edit announcement"
       visible={props.displayModal}
       onCancel={props.onCancel}
       onSuccess={props.onSuccess}
@@ -29,7 +30,7 @@ const NewAnnouncement = (props) => {
       destroyOnClose={true}
     >
       <Form
-        name="newAnnouncement"
+        name="AnnouncementUpdate"
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 16 }}
         onFinish={onFinish}
@@ -39,6 +40,7 @@ const NewAnnouncement = (props) => {
           name="title"
           label="Title"
           rules={[{ required: true, message: "Please input the title." }]}
+          initialValue={props.curAnnouncement.title}
         >
           <Input />
         </Form.Item>
@@ -47,6 +49,7 @@ const NewAnnouncement = (props) => {
           name="category"
           label="Category"
           rules={[{ required: true, message: "Please select a category." }]}
+          initialValue={props.curAnnouncement.category}
         >
           <Select>
             <Option value="GENERAL_ANNOUNCEMENT">General announcement</Option>
@@ -62,6 +65,7 @@ const NewAnnouncement = (props) => {
           rules={[
             { required: true, message: "Please input your description." },
           ]}
+          initialValue={props.curAnnouncement.content}
         >
           <Input.TextArea autoSize={{ minRows: 7, maxRows: 12 }} />
         </Form.Item>
@@ -78,4 +82,4 @@ const NewAnnouncement = (props) => {
   );
 };
 
-export default NewAnnouncement;
+export default AnnouncementUpdate;
