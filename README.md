@@ -22,4 +22,4 @@ Register, login, announcements and requests APIs are implemented using Spring Se
 
 ## Github organization 
 This project is part of our course team projects. 
-For team collaboration, see [Utopia organization] (https://github.com/utopia-community).
+For team collaboration, see [Utopia organization](https://github.com/utopia-community).
