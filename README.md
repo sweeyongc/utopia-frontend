@@ -5,6 +5,8 @@
 Utopia property management system is designed for property admin to manage communication and maintenance operations online. Residents can also view announcements and perform maintenance requests on the platform. 
 
 ## Project Demo 
+Full demo video: [link](https://drive.google.com/file/d/1VNL6bx9wC0w_2Cxyo5SLnDwwklbbKZMG/view?usp=sharing)
+  
 - **Login page for residents and admin**
 ![login](https://user-images.githubusercontent.com/86585163/137029910-251bd4b4-4788-436e-a6e3-175b0e766e01.png)
 
