@@ -2,9 +2,25 @@
 ## Utopia Property Management System
 
 ## Project brief 
-Utopia property management system is designed for property manager to manage communication and maintenance operations online. Residents can also view announcements and perform maintenance requests on the platform. 
+Utopia property management system is designed for property admin to manage communication and maintenance operations online. Residents can also view announcements and perform maintenance requests on the platform. 
 
 ## Project Demo 
+**Login**
+<br />
+Residents and admin share the same login page.
+<img width="1524" alt="login" src="https://user-images.githubusercontent.com/86585163/136870856-b15a7114-e083-42aa-b97e-4c8dbc52f33f.png">
+
+**Resident Announcement page**
+<img width="1493" alt="announcement" src="https://user-images.githubusercontent.com/86585163/136870867-93770e9b-cc56-4633-8a10-ba8fc2b7955c.png">
+
+**Resident My Profile and Request page**
+<img width="1488" alt="myprofile" src="https://user-images.githubusercontent.com/86585163/136870871-41d9300a-be3a-44df-84df-7f58a9ee0c38.png">
+
+**Admin Announcement Management**
+<img width="1521" alt="announcementmgmt" src="https://user-images.githubusercontent.com/86585163/136870891-04af7d1d-dfc9-435d-9b2b-ef5e33463a34.png">
+
+**Admin Request Management**
+<img width="1508" alt="requestmgmt" src="https://user-images.githubusercontent.com/86585163/136870900-7fb21dd9-8797-40cf-a332-7e42cc0e465a.png">
 
 ## User journey 
 ### Resident 
@@ -16,12 +32,16 @@ Utopia property management system is designed for property manager to manage com
 ## Tech framework 
 ### Frontend 
 Frontend is developed using Ant Design and React.js.
-**React Component Tree**
+<br />
+**React Component Tree:**
+
 ![Utopia diagram (SYC)-FE React Component Tree drawio](https://user-images.githubusercontent.com/86585163/136869556-7ad90781-3ae3-49a9-b1ca-52dc5b57c7d5.png)
 
 ### Backend
 Register, login, announcements and requests APIs are implemented using Spring Security, Spring Boot, Hibernate and MySQL. 
-** Backend Layered Architecture**
+<br />
+**Backend Layered Architecture:**
+
 ![Utopia diagram (SYC)-BE Architecture drawio](https://user-images.githubusercontent.com/86585163/136869561-dcce0a83-b856-44fd-8a46-984afbca64e8.png)
 
 ## Github organization 
