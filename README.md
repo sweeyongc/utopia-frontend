@@ -16,11 +16,11 @@ Utopia property management system is designed for property manager to manage com
 ## Tech framework 
 ### Frontend 
 Frontend is developed using Ant Design and React.js.
-![Utopia diagram (SYC)-FE React Component Tree drawio](https://user-images.githubusercontent.com/86585163/136869141-8a29cb7c-b185-4560-bc0d-e6b34629a91a.png)
+![Utopia diagram (SYC)-FE React Component Tree drawio](https://user-images.githubusercontent.com/86585163/136869556-7ad90781-3ae3-49a9-b1ca-52dc5b57c7d5.png)
 
 ### Backend
 Register, login, announcements and requests APIs are implemented using Spring Security, Spring Boot, Hibernate and MySQL. 
-![Utopia diagram (SYC)-BE Architecture drawio](https://user-images.githubusercontent.com/86585163/136869158-8b117083-d720-46af-9260-45474cd94acc.png)
+![Utopia diagram (SYC)-BE Architecture drawio](https://user-images.githubusercontent.com/86585163/136869561-dcce0a83-b856-44fd-8a46-984afbca64e8.png)
 
 ## Github organization 
 This project is part of our course team projects. 
