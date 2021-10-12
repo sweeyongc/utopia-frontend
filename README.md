@@ -5,22 +5,20 @@
 Utopia property management system is designed for property admin to manage communication and maintenance operations online. Residents can also view announcements and perform maintenance requests on the platform. 
 
 ## Project Demo 
-**Login**
-<br />
-Residents and admin share the same login page.
-![login](https://user-images.githubusercontent.com/86585163/137029320-4c48bf88-38ca-4eaf-84ca-782011182769.png)
+- **Login page for residents and admin**
+![login](https://user-images.githubusercontent.com/86585163/137029910-251bd4b4-4788-436e-a6e3-175b0e766e01.png)
 
-**Resident Announcement page**
+- **Resident Announcement page**
 ![announcement](https://user-images.githubusercontent.com/86585163/137028824-a9ae4b2a-657d-408d-9278-8d58af802472.png)
 
-**Resident My Profile and Request page**
-<img width="1488" alt="myprofile" src="https://user-images.githubusercontent.com/86585163/136870871-41d9300a-be3a-44df-84df-7f58a9ee0c38.png">
+- **Resident My Profile and Request page**
+![myprofile](https://user-images.githubusercontent.com/86585163/137030385-eb6c408a-04c0-4d24-95a1-c1119de0c29c.png)
 
-**Admin Announcement Management**
-<img width="1521" alt="announcementmgmt" src="https://user-images.githubusercontent.com/86585163/136870891-04af7d1d-dfc9-435d-9b2b-ef5e33463a34.png">
+- **Admin Announcement Management**
+![announcementmgmt](https://user-images.githubusercontent.com/86585163/137030534-b1ac16fe-f52a-4cd9-80e2-ec9a2fc9a7eb.png)
 
-**Admin Request Management**
-<img width="1508" alt="requestmgmt" src="https://user-images.githubusercontent.com/86585163/136870900-7fb21dd9-8797-40cf-a332-7e42cc0e465a.png">
+- **Admin Request Management**
+![requestmgmt](https://user-images.githubusercontent.com/86585163/137030475-94e1eadb-0e0d-48cb-86b5-0e6f73f2124b.png)
 
 ## User journey 
 ### Resident 
@@ -45,5 +43,5 @@ Register, login, announcements and requests APIs are implemented using Spring Se
 ![Utopia diagram (SYC)-BE Architecture drawio](https://user-images.githubusercontent.com/86585163/136869561-dcce0a83-b856-44fd-8a46-984afbca64e8.png)
 
 ## Github organization 
-This project is part of our course team projects. 
+This project is part of our web development course project. 
 For team collaboration, see [Utopia organization](https://github.com/utopia-community).
