@@ -8,10 +8,10 @@ Utopia property management system is designed for property admin to manage commu
 **Login**
 <br />
 Residents and admin share the same login page.
-<img width="1524" alt="login" src="https://user-images.githubusercontent.com/86585163/136870856-b15a7114-e083-42aa-b97e-4c8dbc52f33f.png">
+![login](https://user-images.githubusercontent.com/86585163/137029320-4c48bf88-38ca-4eaf-84ca-782011182769.png)
 
 **Resident Announcement page**
-<img width="1493" alt="announcement" src="https://user-images.githubusercontent.com/86585163/136870867-93770e9b-cc56-4633-8a10-ba8fc2b7955c.png">
+![announcement](https://user-images.githubusercontent.com/86585163/137028824-a9ae4b2a-657d-408d-9278-8d58af802472.png)
 
 **Resident My Profile and Request page**
 <img width="1488" alt="myprofile" src="https://user-images.githubusercontent.com/86585163/136870871-41d9300a-be3a-44df-84df-7f58a9ee0c38.png">
