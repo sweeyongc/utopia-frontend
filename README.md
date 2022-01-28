@@ -45,5 +45,4 @@ Register, login, announcements and requests APIs are implemented using Spring Se
 ![Utopia diagram (SYC)-BE Architecture drawio](https://user-images.githubusercontent.com/86585163/136869561-dcce0a83-b856-44fd-8a46-984afbca64e8.png)
 
 ## Github organization 
-This project is part of our web development course project. 
 For team collaboration, see [Utopia organization](https://github.com/utopia-community).
