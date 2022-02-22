@@ -9,6 +9,7 @@ const showLogoText = (isAdmin) => {
   return isAdmin ? "UTOPIA|ADMIN" : "UTOPIA";
 };
 
+// Contains page header and footer components
 const MainLayout = ({ user, children }) => {
   const history = useHistory();
   const isAdmin = user.role === "admin";
