@@ -1,6 +1,7 @@
 import { Button, Form, Input, Modal, message, Select } from "antd";
 import { newAnnouncement } from "../utils";
 
+// Contains admin's new announcement creation components
 const NewAnnouncement = (props) => {
   const { Option } = Select;
 

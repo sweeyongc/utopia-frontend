@@ -7,6 +7,7 @@ import "./MyProfile.css";
 
 const { Content, Sider } = Layout;
 
+// Contains user profile layout arrangement 
 const MyProfile = () => {
   return (
     <>

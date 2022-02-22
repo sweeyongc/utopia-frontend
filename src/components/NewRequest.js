@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Input, Button, message, Modal, Select } from "antd";
 import { newRequest } from "../utils";
 
+// Contains user new request submission components
 const NewRequest = (props) => {
   const onFinish = (data) => {
     newRequest(data)
